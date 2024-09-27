@@ -4,5 +4,5 @@
 # helm repo update
 
 helm upgrade --install kube-prometheus-stack prometheus-community/kube-prometheus-stack -n prometheus -f custom-values.yaml && \
-kubectl delete pod $(kubectl get pods -n prometheus | grep prometheus-server | awk '{print $1}') -n prometheus && \
+kubectl delete pod $(kubectl get pods -n prometheus | grep prometheus-stack-prometheus-0 | awk '{print $1}') -n prometheus && \
 watch kubectl get pods -n prometheus
