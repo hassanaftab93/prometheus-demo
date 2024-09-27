@@ -2,7 +2,6 @@
 # Release Name: kube-prometheus-stack
 # helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 # helm repo update
-# helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack
 
 helm upgrade --install kube-prometheus-stack prometheus-community/kube-prometheus-stack -n prometheus -f custom-values.yaml && \
 kubectl delete pod $(kubectl get pods -n prometheus | grep prometheus-server | awk '{print $1}') -n prometheus && \
